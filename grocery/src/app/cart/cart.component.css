@@ -1,0 +1,19 @@
+container {
+    max-width: 600px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }

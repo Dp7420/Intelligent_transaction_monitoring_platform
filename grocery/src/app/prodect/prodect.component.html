@@ -1,0 +1,32 @@
+<app-header1></app-header1>
+<app-navbar></app-navbar>
+<div class="container" id="div card">
+  <div class="text-center">
+    <h4>LATEST <span class="text-success">PRODUCTS</span></h4>
+  </div><br>
+  <div class="row row-cols-1 row-cols-sm-3 text-center">
+    <div class="col" *ngFor="let item of products">
+      <div class="card h-100">
+        <span class="badge w-25 mt-1 ms-1 text-success badge-sm" [style.backgroundColor]="getBadgeColor(item.discount)">
+          {{ item.discount }}%
+        </span>
+        <div class="card-body">
+          <img [src]="item.image" class="card-img" alt="product image">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <span class="card-icons text-warning">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </span>
+          <p class="card-text">&dollar;{{ item.price }} <del class="text-muted">&dollar;{{ item.originalPrice }}</del></p>
+          Quantity:
+          <input type="number" class="number" [(ngModel)]="item.quantity" min="1" style="width: 50px;" /><br><br>
+          <button type="button" class="btn btn-success" (click)="addToCart(item)">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+<app-footer></app-footer>

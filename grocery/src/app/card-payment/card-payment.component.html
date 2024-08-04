@@ -1,0 +1,87 @@
+<app-header1></app-header1>
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-info text-white">
+      <h2 class="card-title">Card Payment</h2>
+    </div>
+    <div class="card-body">
+      <!-- Card Payment Form -->
+      <form (ngSubmit)="onCardSubmit()" #cardPaymentForm="ngForm">
+        <div class="form-group">
+          <label for="cardNumber">Enter Card Number:</label>
+          <input 
+            type="text" 
+            id="cardNumber" 
+            name="cardNumber" 
+            [(ngModel)]="request.cardNumber" 
+            class="form-control"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="expiryDate">Enter Expiry Date (MM/YY):</label>
+          <input 
+            type="text" 
+            id="expiryDate" 
+            name="expiryDate" 
+            [(ngModel)]="request.cardExpiry" 
+            class="form-control"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="cvv">Enter CVV:</label>
+          <input 
+            type="password" 
+            id="cvv" 
+            name="cvv" 
+            [(ngModel)]="request.cardCvv" 
+            class="form-control"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Total Amount:</label>
+          <input 
+            type="text" 
+            id="amount" 
+            name="amount" 
+            [value]="request.amount | currency:'USD':'symbol'" 
+            class="form-control"
+            readonly
+          >
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Initiate Payment</button>
+        </div>
+      </form>
+
+      <!-- OTP Form -->
+      <form *ngIf="showOtpField" (ngSubmit)="onCardOtpSubmit()" #otpForm="ngForm" class="mt-4">
+        <div class="form-group">
+          <label for="otp">Enter OTP:</label>
+          <input 
+            type="text" 
+            id="otp" 
+            name="otp" 
+            [(ngModel)]="request.otp" 
+            class="form-control"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">Verify OTP and Complete Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

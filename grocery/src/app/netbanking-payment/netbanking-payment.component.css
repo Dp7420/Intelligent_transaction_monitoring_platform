@@ -1,0 +1,15 @@
+.card {
+    border-radius: 0.5rem;
+  }
+  
+  .card-header {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }

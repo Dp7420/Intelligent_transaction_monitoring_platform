@@ -1,0 +1,79 @@
+<app-header1></app-header1>
+<app-navbar></app-navbar>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">Net Banking Payment</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onNetBankingSubmit()" #netBankingPaymentForm="ngForm">
+          <div class="form-group mb-3">
+            <label for="netBankingUserId" class="form-label">Enter Net Banking User ID:</label>
+            <input 
+              type="text" 
+              id="netBankingUserId" 
+              name="netBankingUserId" 
+              [(ngModel)]="request.netbankingUserId" 
+              class="form-control" 
+              required
+            >
+          </div>
+    
+          <div class="form-group mb-3">
+            <label for="netBankingPassword" class="form-label">Enter Net Banking Password:</label>
+            <input 
+              type="password" 
+              id="netBankingPassword" 
+              name="netBankingPassword" 
+              [(ngModel)]="request.netbankingPassword" 
+              class="form-control" 
+              required
+            >
+          </div>
+    
+          <div class="form-group mb-3">
+            <label for="amount" class="form-label">Total Amount:</label>
+            <input 
+              type="text" 
+              id="amount" 
+              name="amount" 
+              [value]="request.amount | currency:'USD':'symbol'" 
+              class="form-control" 
+              readonly
+            >
+          </div>
+    
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary">Initiate Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- OTP Verification Card (conditionally shown) -->
+    <div *ngIf="showOtpField" class="card shadow-sm mt-4">
+      <div class="card-header bg-success text-white">
+        <h2 class="mb-0">OTP Verification</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onNetBankingOtpSubmit()" #otpForm="ngForm">
+          <div class="form-group mb-3">
+            <label for="otp" class="form-label">Enter OTP:</label>
+            <input 
+              type="text" 
+              id="otp" 
+              name="otp" 
+              [(ngModel)]="request.otp" 
+              class="form-control" 
+              required
+            >
+          </div>
+    
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-success">Verify OTP and Complete Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

@@ -1,0 +1,46 @@
+<app-header1></app-header1>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>Select Payment Method</h2>
+  
+  <form (ngSubmit)="onSubmit()" class="payment-form">
+    <div class="payment-option">
+      <input type="radio" id="card" name="payment-method" value="card" [(ngModel)]="selectedPaymentMethod" checked>
+      <label for="card">Card</label>
+    </div>
+    
+    <div class="payment-option">
+      <input type="radio" id="upi" name="payment-method" value="upi" [(ngModel)]="selectedPaymentMethod">
+      <label for="upi">UPI</label>
+    </div>
+    
+    <div class="payment-option">
+      <input type="radio" id="netbanking" name="payment-method" value="netbanking" [(ngModel)]="selectedPaymentMethod">
+      <label for="netbanking">Net Banking</label>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input type="text" id="amount" name="amount" [(ngModel)]="amount" readonly>
+    </div>
+    
+    <div class="total-amount">
+      Total Amount: {{ totalAmount }}
+    </div>
+    
+    <button type="submit" class="submit-button">Proceed To Payment</button>
+  </form>
+</div>
+
+<app-footer></app-footer>

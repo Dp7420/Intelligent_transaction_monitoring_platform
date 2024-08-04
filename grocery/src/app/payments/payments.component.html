@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<app-header></app-header>
+<div class="d-flex">
+
+    <div class="content-area w-100">
+
+      <div class="main-content p-3">
+        <div class="container mt-4">
+          <div class="card bg-body rounded shadow-sm">
+            <div class="card-body container-fluid">
+              
+              <nav class="navbar navbar-light bg-light rounded mb-4 search-bar">
+                <div class="container-fluid">
+                  <h4 class="card-title mb-0">Bank List:</h4>
+                  <form class="d-flex mb-1">
+                  </form>
+                </div>
+              </nav>
+              <div class="table-responsive rounded">
+                <table class="table table-bordered table-hover">
+                  <thead class="table text-center">
+                    <tr>
+                      <th style="background-color: #b1d3ea;" scope="col">Account Number</th>
+                      <th style="background-color: #b1d3ea;" scope="col">Transaction Id</th>
+                      <th style="background-color: #b1d3ea;" scope="col">Transaction Status</th>
+                      <th style="background-color: #b1d3ea;" scope="col">View</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>123456789</td>
+                      <td>658984846548</td>
+                      <td>Success</td>
+                      <td class="text-center">
+                        <span class="text-primary"><strong style="font-size: 30px;"><i class="bi bi-eye-slash-fill"></i></strong></span>
+                      </td>
+                    </tr>
+                    <!-- Repeat above <tr> block as needed for other bank details -->
+                  </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
